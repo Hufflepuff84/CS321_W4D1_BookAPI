@@ -1,5 +1,14 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using CS321_W4D1_BookAPI.Models;
+using CS321_W4D1_BookAPI.Data;
+using System.Security.Policy;
+using CS321_W4D1_BookAPI.ApiModels;
+using CS321_W4D1_BookAPI.Services;
+using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace CS321_W4D1_BookAPI.ApiModels
 {

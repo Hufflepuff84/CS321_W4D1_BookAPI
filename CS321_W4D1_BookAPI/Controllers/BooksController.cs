@@ -20,15 +20,7 @@ namespace CS321_W4D1_BookAPI.Controllers
         }
 
         // GET api/books
-        [HttpGet("/api/authors/{authorId}/books")]
-        public IActionResult GetBooksForAuthor(int authorId)
-        {
-            var bookModels = _bookService
-                .GetBooksForAuthor(authorId)
-                .ToApiModels();
-
-            return Ok(bookModels);
-        }
+       
         [HttpGet]
         public IActionResult Get()
         {
@@ -54,9 +46,20 @@ namespace CS321_W4D1_BookAPI.Controllers
             var book = _bookService.Get(id)
             .ToApiModel();
             if (book == null) return NotFound();
-            return Ok(book.ToApiModel());
+            return Ok(book);
         }
-
+        [HttpGet("api/authors/{authorId}/books")]
+        public IActionResult GetBooksForAuthor(int authorId)
+        {
+            return Ok (_bookService.GetBooksForAuthor(authorId)
+                .ToApiModels());
+        }
+        [HttpGet("api/publishers/{publisherId}/books")]
+        public IActionResult GetBooksForPublisher(int publisherId)
+        {
+            return Ok(_bookService.GetBooksForPublisher(publisherId)
+                .ToApiModels());
+        }
         private void ToApiModel()
         {
             throw new NotImplementedException();

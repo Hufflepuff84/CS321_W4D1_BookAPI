@@ -10,7 +10,7 @@ namespace CS321_W4D1_BookAPI.Services
     {
 
         private readonly BookContext _bookContext;
-        private int authorId;
+        private readonly int authorId;
 
         public BookService(BookContext bookContext)
         {
@@ -72,6 +72,24 @@ namespace CS321_W4D1_BookAPI.Services
             _bookContext.SaveChanges();
         }
 
+        
         // TODO: implement GetBooksForAuthor() method
+        public IEnumerable<Book> GetBooksForAuthor(int authorId)
+        {
+            return _bookContext.Books
+            .Include(b => b.Author)
+            .Include(b => b.Publisher)
+            .Where(b => b.AuthorId == authorId)
+            .ToList();
+            //throw new System.NotImplementedException();
+        }
+        public IEnumerable<Book> GetBooksForPublisher(int publisherId)
+        {
+            return _bookContext.Books
+                        .Include(b => b.Author)
+                        .Where(b => b.PublisherId == publisherId)
+                        .ToList();
+
+        }
     }
 }

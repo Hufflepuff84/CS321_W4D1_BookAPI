@@ -28,7 +28,7 @@ namespace CS321_W4D1_BookAPI.ApiModels
                 Id = authorModel.Id,
                 BirthDate = authorModel.BirthDate,
                 FirstName = authorModel.FirstName,
-                LastName = authorM
+                LastName = authorModel.LastName
             };
         }
 
