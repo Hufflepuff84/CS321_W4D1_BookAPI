@@ -18,13 +18,22 @@ namespace CS321_W4D1_BookAPI.ApiModels
                 Genre = book.Genre,
                 OriginalLanguage = book.OriginalLanguage,
                 PublicationYear = book.PublicationYear,
-                PublisherId = book.PublisherId,
+                
                 AuthorId = book.AuthorId,
+                Author = book.Author != null?
+                    book.Author.LastName + ", " +
+                    book.Author.FirstName:"Unknown",
                 // concatenate the author's name properties and use it as the value of
                 // Author. Use null if the Author is null.
-                Author = book.Author != null
-                     ? book.Author.LastName + ", " + book.Author.FirstName
-                     : null
+                //Author = needsToBeConvertedBook.Author.LastName + 
+                //", " + needsToBeConvertedBook.Author.FirstName, //Publiser
+                    // ? needsToBeConvertedBook.Author.LastName + ", " + needsToBeConvertedBook.Author.FirstName
+                    // : null
+                    PublisherId = book.PublisherId,
+                    Publisher = book.Publisher != null ?
+                    book.Publisher.Name + ", " +
+                    book.Publisher.HeadQaurtersLocation : "NA"
+
             };
         }
 

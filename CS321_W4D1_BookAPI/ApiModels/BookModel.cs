@@ -17,7 +17,8 @@ namespace CS321_W4D1_BookAPI.ApiModels
         public string Author { get; set; } // simple string
 
         public int PublisherId { get; set; }
-        public string Publiser { get; set; }
+        public string Publisher { get; set; }
+        
         
     }
 }

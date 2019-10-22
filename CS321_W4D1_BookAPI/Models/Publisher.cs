@@ -11,6 +11,7 @@ namespace CS321_W4D1_BookAPI.Models
         public string CountryOfOrigin { get; set; }
         public string HeadQuartersLocation { get; set; }
         public ICollection<Book> Books { get; set; }
+        public string HeadQaurtersLocation { get; internal set; }
     }
 }
 
